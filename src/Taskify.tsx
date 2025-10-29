@@ -15,13 +15,13 @@ const Taskify: React.FC = () => {
     }
   };
 
-  const toggleDone = (id: number) => {
-    setTodone(
-      todone.map((t) =>
-        t.id === id ? { ...t, isDone: !t.isDone } : t
-      )
-    );
-  };
+  // const toggleDone = (id: number) => {
+  //   setTodone(
+  //     todone.map((t) =>
+  //       t.id === id ? { ...t, isDone: !t.isDone } : t
+  //     )
+  //   );
+  // };
 
   const inputRef = useRef<HTMLInputElement>(null);
 
