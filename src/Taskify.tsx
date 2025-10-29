@@ -17,9 +17,7 @@ const Taskify: React.FC = () => {
 
   // const toggleDone = (id: number) => {
   //   setTodone(
-  //     todone.map((t) =>
-  //       t.id === id ? { ...t, isDone: !t.isDone } : t
-  //     )
+  //     todone.map((t) => (t.id === id ? { ...t, isDone: !t.isDone } : t))
   //   );
   // };
 
@@ -28,9 +26,11 @@ const Taskify: React.FC = () => {
   return (
     <div className="app">
       <h2 className="heading">
-        Task<span className="highlight">ify</span> <MdAddTask className="icon" />
+        Task<span className="highlight">ify</span>{" "}
+        <MdAddTask className="icon" />
       </h2>
-      <h4>Add your Task or To do List here</h4><br />
+      <h4>Add your Task or To do List here</h4>
+      <br />
 
       <form className="search-section" onSubmit={handleAdd}>
         <input
@@ -41,20 +41,23 @@ const Taskify: React.FC = () => {
           placeholder="Enter your task..."
           className="search-input"
         />
-        <button className="add-btn">
-          Add Task
-        </button>
+        <button className="add-btn">Add Task</button>
       </form>
 
       {/* To-do list display */}
       <div className="todo-container">
         {todone.length === 0 ? (
           <p className="empty">No tasks added yet.</p>
-        ) :
-        todone.map((t) => (
-    <TodoItem key={t.id} todo={t} todos={todone} setTodos={setTodone} />
-  ))
-        }
+        ) : (
+          todone.map((t) => (
+            <TodoItem
+              key={t.id}
+              todo={t}
+              todos={todone}
+              setTodos={setTodone}
+            />
+          ))
+        )}
       </div>
     </div>
   );
